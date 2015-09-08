@@ -84,8 +84,8 @@ style guide.
 
 ## Quelltext-Gestaltung
 
-> Nahezu jeder ist davon überzeugt, dass jeder Stil, abgesehen von dem eigenen,
-> hässlich und unleserlich ist. Lass das "abgesehen von dem eigenen" weg
+> Nahezu jeder ist davon überzeugt, dass alle Stile, abgesehen vom eigenen,
+> hässlich und unleserlich sind. Lass das "abgesehen vom eigenen" weg
 > und sie haben vermutlich recht... <br>
 > (Original engl.: Nearly everybody is convinced that every style but their own is
 > ugly and unreadable. Leave out the "but their own" and they're
@@ -93,7 +93,7 @@ style guide.
 > -- Jerry Coffin (on indentation)
 
 * <a name="utf-8"></a>
-  Nutze `UTF-8` als Kodierung für die Quelledatei.
+  Nutze `UTF-8` als Kodierung für die Quelldatei.
 <sup>[[link](#utf-8)]</sup>
 
 * <a name="spaces-indentation"></a>
@@ -113,8 +113,8 @@ style guide.
   ```
 
 * <a name="crlf"></a>
-  Use Unix-style line endings. (*BSD/Solaris/Linux/OS X users are covered by
-  default, Windows users have to be extra careful.)
+  Nutze Unix-artige Zeilenenden. (*BSD/Solaris/Linux/OS X-Nutzer sind damit standardmäßig bedient, Windows-Nutzer 
+  müssen besonders vorsichtig sein.)
 <sup>[[link](#crlf)]</sup>
 
   * If you're using Git you might want to add the following
@@ -126,7 +126,7 @@ style guide.
     ```
 
 * <a name="no-semicolon"></a>
-  Nutze keine `;` um Ausdrücke zu trennen. Als logische Folge nutze nur einen Ausdruck pro Zeile.
+  Vermeide `;` um Ausdrücke zu trennen. Daraus folgt, nur einen Ausdruck pro Zeile zu nutzen.
 <sup>[[link](#no-semicolon)]</sup>
 
   ```Ruby
@@ -161,10 +161,10 @@ style guide.
   ```
 
 * <a name="no-single-line-methods"></a>
-  Avoid single-line methods. Although they are somewhat popular in the wild,
-  there are a few peculiarities about their definition syntax that make their
-  use undesirable. At any rate - there should be no more than one expression in
-  a single-line method.
+  Vermeide einzeilige Methoden. Auch wenn sie in der freien Wildbahn einigermaßen beliebt sind,
+  gibt es einige Eigenarten ihrer Definitionssyntax, die ihre Verwendung
+  nicht wünschenswert machen. Unter allen Umständen sollte es in einer einzeiligen Methode
+  nicht mehr als einen Ausdruck geben.
 <sup>[[link](#no-single-line-methods)]</sup>
 
   ```Ruby
@@ -194,9 +194,9 @@ style guide.
   ```
 
 * <a name="spaces-operators"></a>
-  Use spaces around operators, after commas, colons and semicolons, around `{`
-  and before `}`. Whitespace might be (mostly) irrelevant to the Ruby
-  interpreter, but its proper use is the key to writing easily readable code.
+  Verwende Leerzeichen um Operatoren herum, nach Kommata, Doppelpunkten und Semicolons, um `{`
+  herum und vor `}`. Leerzeichen mögen (in den meisten Fällen) für den Ruby-Interpreter
+  irrelevant sein, aber die korrekte Verwendung ist der Schlüssel zum Schreiben von einfach lesbaren Code.
 <sup>[[link](#spaces-operators)]</sup>
 
   ```Ruby
@@ -206,7 +206,7 @@ style guide.
   class FooError < StandardError; end
   ```
 
-  The only exception, regarding operators, is the exponent operator:
+  Die einzige Ausnahme bezüglich der Operatoren, ist der Exponenten-Operator:
 
   ```Ruby
   # schlecht
