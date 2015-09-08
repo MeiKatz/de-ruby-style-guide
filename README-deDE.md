@@ -163,7 +163,7 @@ style guide.
 * <a name="no-single-line-methods"></a>
   Vermeide einzeilige Methoden. Auch wenn sie in der freien Wildbahn einigermaßen beliebt sind,
   gibt es einige Eigenarten ihrer Definitionssyntax, die ihre Verwendung
-  nicht wünschenswert machen. Unter allen Umständen sollte es in einer einzeiligen Methode
+  unangenehm machen. Unter allen Umständen sollte es in einer einzeiligen Methode
   nicht mehr als einen Ausdruck geben.
 <sup>[[link](#no-single-line-methods)]</sup>
 
