@@ -80,7 +80,7 @@ style guide.
 * [Prozentliterale](#percent-literals)
 * [Meta-Programmierung](#metaprogramming)
 * [Sonstiges](#misc)
-* [Werkzeuge](#tools)
+* [Hilfsmittel](#tools)
 
 ## Quelltext-Gestaltung
 
@@ -113,13 +113,13 @@ style guide.
   ```
 
 * <a name="crlf"></a>
-  Nutze Unix-artige Zeilenenden. (*BSD/Solaris/Linux/OS X-Nutzer sind damit standardmäßig bedient, Windows-Nutzer 
+  Nutze Unix-Zeilenenden. (*BSD-/Solaris-/Linux-/OS-X-Nutzer sind damit standardmäßig bedient, Windows-Nutzer 
   müssen besonders vorsichtig sein.)
 <sup>[[link](#crlf)]</sup>
 
-  * If you're using Git you might want to add the following
-    configuration setting to protect your project from Windows line
-    endings creeping in:
+  * Wenn du Git nutzt, kannst du die folgende Konfigurationseinstellung
+    zu deinem Projekt hinzufügen, um dich vor sich einschleichenden Windows-Zeilenenden
+    zu schützen:
 
     ```bash
     $ git config --global core.autocrlf true
@@ -186,7 +186,7 @@ style guide.
   end
   ```
 
-  Eine Ausnahme von dieser Regel bilden Methoden mit leerem Körper.
+  Eine Ausnahme von dieser Regel bilden Methoden mit leerem Körper:
 
   ```Ruby
   # gut
@@ -206,7 +206,7 @@ style guide.
   class FooError < StandardError; end
   ```
 
-  Die einzige Ausnahme bezüglich der Operatoren, ist der Exponenten-Operator:
+  Die einzige Ausnahme, bezüglich der Operatoren, ist der Exponenten-Operator:
 
   ```Ruby
   # schlecht
@@ -248,7 +248,7 @@ style guide.
   ```
 
 * <a name="no-space-bang"></a>
-  Kein Leerzeichen nach `!`.
+  Keine Leerzeichen nach `!`.
 <sup>[[link](#no-space-bang)]</sup>
 
   ```Ruby
@@ -287,7 +287,7 @@ style guide.
     when song.duration > 120
       puts 'Zu lang!'
     when Time.now.hour > 21
-      puts "Es ist zu spät"
+      puts 'Es ist zu spät'
     else
       song.play
   end
@@ -299,7 +299,7 @@ style guide.
   when song.duration > 120
     puts 'Zu lang!'
   when Time.now.hour > 21
-    puts "Es ist zu spät"
+    puts 'Es ist zu spät'
   else
     song.play
   end
@@ -343,7 +343,7 @@ style guide.
              calc_something_else
            end
 
-  # gut (und ein bisschen mehr platzsparend)
+  # gut (und ein bisschen platzsparender)
   kind =
     case year
     when 1850..1889 then 'Blues'
@@ -1876,7 +1876,7 @@ no parameters.
   array.reverse_each { ... }
   ```
 
-## Naming
+## Namensgebung
 
 > The only real difficulties in programming are cache invalidation and
 > naming things. <br>
@@ -2063,7 +2063,7 @@ no parameters.
   end
   ```
 
-## Comments
+## Kommentare
 
 > Good code is its own best documentation. As you're about to add a
 > comment, ask yourself, "How can I improve the code so that this
@@ -2179,7 +2179,7 @@ no parameters.
   document them in your project's `README` or similar.
 <sup>[[link](#document-annotations)]</sup>
 
-## Classes & Modules
+## Klassen und Module
 
 * <a name="consistent-classes"></a>
   Use a consistent structure in your class definitions.
@@ -2654,7 +2654,7 @@ no parameters.
   end
   ```
 
-## Exceptions
+## Ausnahmebehandlung
 
 * <a name="fail-method"></a>
   Signal exceptions using the `fail` method. Use `raise` only when catching an
@@ -3159,7 +3159,7 @@ resource cleanup when possible.
   end
   ```
 
-## Strings
+## Zeichenketten
 
 * <a name="string-interpolation"></a>
   Prefer string interpolation and string formatting instead of string
@@ -3338,7 +3338,7 @@ resource cleanup when possible.
   # => "def test\n  some_method\n  other_method\nend\n"
   ```
 
-## Regular Expressions
+## Reguläre Ausdrücke
 
 > Some people, when confronted with a problem, think
 > "I know, I'll use regular expressions." Now they have two problems.<br>
@@ -3446,7 +3446,7 @@ resource cleanup when possible.
   words.gsub(/\w+/) { |word| word.capitalize } # => 'Foo Bar'
   ```
 
-## Percent Literals
+## Prozentliterale
 
 * <a name="percent-q-shorthand"></a>
   Use `%()`(it's a shorthand for `%Q`) for single-line strings which require
@@ -3540,7 +3540,7 @@ resource cleanup when possible.
   %q("Test's king!", John said.)
   ```
 
-## Metaprogramming
+## Meta-Programmierung
 
 * <a name="no-needless-metaprogramming"></a>
   Avoid needless metaprogramming.
@@ -3626,7 +3626,7 @@ resource cleanup when possible.
   Prefer `public_send` over `send` so as not to circumvent `private`/`protected` visibility.
 <sup>[[link](#prefer-public-send)]</sup>
 
-## Misc
+## Sonstiges
 
 * <a name="always-warn"></a>
   Write `ruby -w` safe code.
@@ -3698,7 +3698,7 @@ resource cleanup when possible.
   Use common sense.
 <sup>[[link](#common-sense)]</sup>
 
-## Tools
+## Hilfsmittel
 
 Here are some tools to help you automatically check Ruby code against
 this guide.
