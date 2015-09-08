@@ -1,31 +1,17 @@
-# Ouvertüre
+# Einleitung
 
-> Role models are important. <br>
+> Vorbilder sind wichtig. (Original engl.: Role models are important.) <br>
 > -- Officer Alex J. Murphy / RoboCop
 
-One thing has always bothered me as a Ruby developer - Python developers have a
-great programming style reference
-([PEP-8][]) and we never got an official
-guide, documenting Ruby coding style and best practices. And I do believe that
-style matters. I also believe that a great hacker community, such as Ruby has,
-should be quite capable of producing this coveted document.
+Eine Sache hat mich als Ruby-Entwickler immer gestört: Python-Entwickler haben eine großartige Programmierstil-Empfehlung ([PEP-8][]) und wir hatten nie einen offiziellen Leitfaden, der den Ruby-Programmierstil und die Best Practices festhält. Und ich glaube, dass Stil wichtig ist. Ebenso glaube ich, dass eine große Hacker-Gemeinschaft, wie die von Ruby, imstande sein sollte, dieses begehrte Dokument zu erstellen.
 
-This guide started its life as our internal company Ruby coding guidelines
-(written by yours truly). At some point I decided that the work I was doing
-might be interesting to members of the Ruby community in general and that the
-world had little need for another internal company guideline. But the world
-could certainly benefit from a community-driven and community-sanctioned set of
-practices, idioms and style prescriptions for Ruby programming.
+Dieser Leitfaden begann sein Leben als unser betriebsinterner Ruby-Programmierstil-Leitfaden (von meiner Wenigkeit geschrieben). Ab einem gewissen Punkt entschied ich, dass diese Arbeit allgemein für Mitglieder der Ruby-Gemeinschaft interessant sein könnte und dass die Welt wenig Bedarf für eine weitere betriebsinterene Richtlinie hat. Allerdings könnte die Welt von einer Hand voll Methoden, Idiomen und Stilvorschriften für die Ruby-Programmierung profitieren, die von der Gemeinschaft vorangetrieben und unterstützt wird.
 
-Since the inception of the guide I've received a lot of feedback from members of
-the exceptional Ruby community around the world. Thanks for all the suggestions
-and the support! Together we can make a resource beneficial to each and every
-Ruby developer out there.
+Von Anfang an habe ich eine Menge Rückmeldungen von Mitgliedern aus der außergewöhnlichen Ruby-Gemeinschaft rund um die Welt erhalten. Vielen Dank für all die Anregungen und die Unterstützung! Zusammen können wir eine Bezugsquelle schaffen, die für jeden Ruby-Entwickler da draußen nütztlich ist.
 
-By the way, if you're into Rails you might want to check out the complementary
-[Ruby on Rails Style Guide][rails-style-guide].
+Nebenbei: wenn Du Rails magst, dann schau Dir ergänzend hierzu den [Ruby-on-Rails-Stilleitfaden][rails-style-guide] an.
 
-# Ruby: Anleitung für den Codestil
+# Der Ruby-Stilleitfaden
 
 This Ruby style guide recommends best practices so that real-world Ruby
 programmers can write code that can be maintained by other real-world Ruby
@@ -64,7 +50,7 @@ You can generate a PDF or an HTML copy of this guide using
 [RuboCop][] is a code analyzer, based on this
 style guide.
 
-Translations of the guide are available in the following languages:
+Übersetzungen dieses Leitfadens sind in folgenden Sprachen verfügbar:
 
 
 * [Chinesisch (traditionelle Schrift)](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhTW.md)
@@ -81,43 +67,46 @@ Translations of the guide are available in the following languages:
 
 ## Inhaltsverzeichnis
 
-* [Source Code Layout](#source-code-layout)
+* [Quelltext-Gestaltung](#source-code-layout)
 * [Syntax](#syntax)
-* [Naming](#naming)
-* [Comments](#comments)
-  * [Comment Annotations](#comment-annotations)
-* [Classes](#classes--modules)
-* [Exceptions](#exceptions)
+* [Namensgebung](#naming)
+* [Kommentare](#comments)
+  * [Anmerkungen](#comment-annotations)
+* [Klassen](#classes--modules)
+* [Ausnahmebehandlung](#exceptions)
 * [Collections](#collections)
-* [Strings](#strings)
-* [Regular Expressions](#regular-expressions)
-* [Percent Literals](#percent-literals)
-* [Metaprogramming](#metaprogramming)
-* [Misc](#misc)
-* [Tools](#tools)
+* [Zeichenketten](#strings)
+* [Reguläre Ausdrücke](#regular-expressions)
+* [Prozentliterale](#percent-literals)
+* [Meta-Programmierung](#metaprogramming)
+* [Sonstiges](#misc)
+* [Werkzeuge](#tools)
 
-## Source Code Layout
+## Quelltext-Gestaltung
 
-> Nearly everybody is convinced that every style but their own is
+> Nahezu jeder ist davon überzeugt, dass jeder Stil, abgesehen von dem eigenen,
+> hässlich und unleserlich ist. Lass das "abgesehen von dem eigenen" weg
+> und sie haben vermutlich recht... <br>
+> (Original engl.: Nearly everybody is convinced that every style but their own is
 > ugly and unreadable. Leave out the "but their own" and they're
-> probably right... <br>
+> probably right...) <br>
 > -- Jerry Coffin (on indentation)
 
 * <a name="utf-8"></a>
-  Use `UTF-8` as the source file encoding.
+  Nutze `UTF-8` als Kodierung für die Quelledatei.
 <sup>[[link](#utf-8)]</sup>
 
 * <a name="spaces-indentation"></a>
-  Use two **spaces** per indentation level (aka soft tabs). No hard tabs.
+  Nutze zwei **Leerzeichen** pro Einrückungsebene (aka Soft Tabs). Keine festen Tabs.
 <sup>[[link](#spaces-indentation)]</sup>
 
   ```Ruby
-  # bad - four spaces
+  # schlecht - vier Leerzeichen
   def some_method
       do_something
   end
 
-  # good
+  # gut
   def some_method
     do_something
   end
@@ -137,38 +126,37 @@ Translations of the guide are available in the following languages:
     ```
 
 * <a name="no-semicolon"></a>
-  Don't use `;` to separate statements and expressions. As a corollary - use one
-  expression per line.
+  Nutze keine `;` um Ausdrücke zu trennen. Als logische Folge nutze nur einen Ausdruck pro Zeile.
 <sup>[[link](#no-semicolon)]</sup>
 
   ```Ruby
-  # bad
-  puts 'foobar'; # superfluous semicolon
+  # schlecht
+  puts 'foobar'; # überflüssiges Semikolon
 
-  puts 'foo'; puts 'bar' # two expressions on the same line
+  puts 'foo'; puts 'bar' # zwei Ausdrücke in einer Zeile
 
-  # good
+  # gut
   puts 'foobar'
 
   puts 'foo'
   puts 'bar'
 
-  puts 'foo', 'bar' # this applies to puts in particular
+  puts 'foo', 'bar' # das gilt insbesondere für puts
   ```
 
 * <a name="single-line-classes"></a>
-  Prefer a single-line format for class definitions with no body.
+  Bevorzuge ein einzeiliges Format für Klassendefinitionen ohne Körper.
 <sup>[[link](#single-line-classes)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   class FooError < StandardError
   end
 
-  # okish
+  # akzeptabel
   class FooError < StandardError; end
 
-  # good
+  # gut
   FooError = Class.new(StandardError)
   ```
 
@@ -180,28 +168,28 @@ Translations of the guide are available in the following languages:
 <sup>[[link](#no-single-line-methods)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   def too_much; something; something_else; end
 
-  # okish - notice that the first ; is required
+  # akzeptabel - beachte, dass das erste ; notwendig ist
   def no_braces_method; body end
 
-  # okish - notice that the second ; is optional
+  # akzeptabel - beachte, dass das zweite ; optional ist
   def no_braces_method; body; end
 
-  # okish - valid syntax, but no ; makes it kind of hard to read
+  # akzeptabel - gültige Syntax, aber ohne ; ist es schwer zu lesen
   def some_method() body end
 
-  # good
+  # gut
   def some_method
     body
   end
   ```
 
-  One exception to the rule are empty-body methods.
+  Eine Ausnahme von dieser Regel bilden Methoden mit leerem Körper.
 
   ```Ruby
-  # good
+  # gut
   def no_op; end
   ```
 
@@ -221,10 +209,10 @@ Translations of the guide are available in the following languages:
   The only exception, regarding operators, is the exponent operator:
 
   ```Ruby
-  # bad
+  # schlecht
   e = M * c ** 2
 
-  # good
+  # gut
   e = M * c**2
   ```
 
@@ -233,10 +221,10 @@ Translations of the guide are available in the following languages:
   For hash literals two styles are considered acceptable.
 
   ```Ruby
-  # good - space after { and before }
+  # gut - Leerzeichen nach { und vor }
   { one: 1, two: 2 }
 
-  # good - no space after { and before }
+  # gut - kein Leerzeichen nach { und vor }
   {one: 1, two: 2}
   ```
 
@@ -246,28 +234,28 @@ Translations of the guide are available in the following languages:
   literals. Whichever one you pick - apply it consistently.
 
 * <a name="no-spaces-braces"></a>
-  No spaces after `(`, `[` or before `]`, `)`.
+  Keine Leerzeichen nach `(`, `[` oder vor `]`, `)`.
 <sup>[[link](#no-spaces-braces)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   some( arg ).other
   [ 1, 2, 3 ].size
 
-  # good
+  # gut
   some(arg).other
   [1, 2, 3].size
   ```
 
 * <a name="no-space-bang"></a>
-  No space after `!`.
+  Kein Leerzeichen nach `!`.
 <sup>[[link](#no-space-bang)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   ! something
 
-  # good
+  # gut
   !something
   ```
 
@@ -276,11 +264,11 @@ Translations of the guide are available in the following languages:
 <sup>[[link](#no-space-inside-range-literals)]</sup>
 
     ```Ruby
-    # bad
+    # schlecht
     1 .. 3
     'a' ... 'z'
 
-    # good
+    # gut
     1..3
     'a'...'z'
     ```
@@ -292,26 +280,26 @@ Translations of the guide are available in the following languages:
 <sup>[[link](#indent-when-to-case)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   case
     when song.name == 'Misty'
-      puts 'Not again!'
+      puts 'Nicht schon wieder!'
     when song.duration > 120
-      puts 'Too long!'
+      puts 'Zu lang!'
     when Time.now.hour > 21
-      puts "It's too late"
+      puts "Es ist zu spät"
     else
       song.play
   end
 
-  # good
+  # gut
   case
   when song.name == 'Misty'
-    puts 'Not again!'
+    puts 'Nicht schon wieder!'
   when song.duration > 120
-    puts 'Too long!'
+    puts 'Zu lang!'
   when Time.now.hour > 21
-    puts "It's too late"
+    puts "Es ist zu spät"
   else
     song.play
   end
@@ -323,7 +311,7 @@ Translations of the guide are available in the following languages:
 <sup>[[link](#indent-conditional-assignment)]</sup>
 
   ```Ruby
-  # bad - pretty convoluted
+  # schlecht - ziemlich unübersichtlich
   kind = case year
   when 1850..1889 then 'Blues'
   when 1890..1909 then 'Ragtime'
@@ -339,7 +327,7 @@ Translations of the guide are available in the following languages:
     calc_something_else
   end
 
-  # good - it's apparent what's going on
+  # gut - es ist ersichtlich, was passiert
   kind = case year
          when 1850..1889 then 'Blues'
          when 1890..1909 then 'Ragtime'
@@ -355,7 +343,7 @@ Translations of the guide are available in the following languages:
              calc_something_else
            end
 
-  # good (and a bit more width efficient)
+  # gut (und ein bisschen mehr platzsparend)
   kind =
     case year
     when 1850..1889 then 'Blues'
@@ -394,56 +382,56 @@ Translations of the guide are available in the following languages:
   ```
 
 * <a name="no-trailing-params-comma"></a>
-  Avoid comma after the last parameter in a method call, especially when the
-  parameters are not on separate lines.
+  Vermeide Kommata nach dem letzten Parameter in einem Methodenaufruf,
+  besonders dann, wenn die Parameter sich in einer Zeile befinden
 <sup>[[link](#no-trailing-params-comma)]</sup>
 
   ```Ruby
-  # bad - easier to move/add/remove parameters, but still not preferred
+  # schlecht - es ist zwar einfacher Parameter zu ändern/hinzuzufügen/entfernen,
+  # aber dennoch nicht zu empfehlen
   some_method(
                size,
                count,
                color,
              )
 
-  # bad
+  # schlecht
   some_method(size, count, color, )
 
-  # good
+  # gut
   some_method(size, count, color)
   ```
 
 * <a name="spaces-around-equals"></a>
-  Use spaces around the `=` operator when assigning default values to method
-  parameters:
+  Verwende Leerzeichen um den `=`-Operator herum, bei Parametern mit Standartwerten.
 <sup>[[link](#spaces-around-equals)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   def some_method(arg1=:default, arg2=nil, arg3=[])
-    # do something...
+    # mach irgendwas...
   end
 
-  # good
+  # gut
   def some_method(arg1 = :default, arg2 = nil, arg3 = [])
-    # do something...
+    # mach irgendwas...
   end
   ```
 
-  While several Ruby books suggest the first style, the second is much more
-  prominent in practice (and arguably a bit more readable).
+  Obwohl einige Ruby-Bücher die erste Form empfehlen,
+  ist die zweite Form in der Praxis weiter verbreitet (und wohl ein bisschen lesbarer).
 
 * <a name="no-trailing-backslash"></a>
-  Avoid line continuation `\` where not required. In practice, avoid using
-  line continuations for anything but string concatenation.
+  Vermeide Zeilen-Fortsetzungen `\`, wo nicht benötigt. In der Praxis, solltest Du es
+  überall vermeiden, außer bei der Fortsetzung von Zeichenketten.
 <sup>[[link](#no-trailing-backslash)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   result = 1 - \
            2
 
-  # good (but still ugly as hell)
+  # gut (trotzdem noch verdammt hässlich)
   result = 1 \
            - 2
 
@@ -495,12 +483,12 @@ Translations of the guide are available in the following languages:
 <sup>[[link](#no-double-indent)]</sup>
 
   ```Ruby
-  # starting point (line is too long)
+  # Ausgangspunkt (Zeile ist zu lang)
   def send_mail(source)
     Mailer.deliver(to: 'bob@example.com', from: 'us@example.com', subject: 'Important message', body: source.text)
   end
 
-  # bad (double indent)
+  # schlecht (doppelt eingerückt)
   def send_mail(source)
     Mailer.deliver(
         to: 'bob@example.com',
@@ -509,7 +497,7 @@ Translations of the guide are available in the following languages:
         body: source.text)
   end
 
-  # good
+  # gut
   def send_mail(source)
     Mailer.deliver(to: 'bob@example.com',
                    from: 'us@example.com',
@@ -517,7 +505,7 @@ Translations of the guide are available in the following languages:
                    body: source.text)
   end
 
-  # good (normal indent)
+  # gut (normal eingerückt)
   def send_mail(source)
     Mailer.deliver(
       to: 'bob@example.com',
@@ -533,31 +521,31 @@ Translations of the guide are available in the following languages:
 <sup>[[link](#align-multiline-arrays)]</sup>
 
   ```Ruby
-  # bad - single indent
+  # schlecht - einfache Einrückung
   menu_item = ['Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam',
     'Baked beans', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam']
 
-  # good
+  # gut
   menu_item = [
     'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam',
     'Baked beans', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam'
   ]
 
-  # good
+  # gut
   menu_item =
     ['Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam',
      'Baked beans', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam']
   ```
 
 * <a name="underscores-in-numerics"></a>
-  Add underscores to large numeric literals to improve their readability.
+  Füge großen Zahlenliteralen Unterstriche hinzu, um ihre Lesbarkeit zu erhöhen.
 <sup>[[link](#underscores-in-numerics)]</sup>
 
   ```Ruby
-  # bad - how many 0s are there?
+  # schlecht - wie viele 0en sind das?
   num = 1000000
 
-  # good - much easier to parse for the human brain
+  # gut - viel leichter für uns Menschen zu lesen
   num = 1_000_000
   ```
 
@@ -567,15 +555,15 @@ Translations of the guide are available in the following languages:
 <sup>[[link](#rdoc-conventions)]</sup>
 
 * <a name="80-character-limits"></a>
-  Limit lines to 80 characters.
+  Begrenze Zeilen auf 80 Zeichen.
 <sup>[[link](#80-character-limits)]</sup>
 
 * <a name="no-trailing-whitespace"></a>
-  Avoid trailing whitespace.
+  Vermeide nachfolgende Leerzeichen.
 <sup>[[link](#no-trailing-whitespace)]</sup>
 
 * <a name="newline-eof"></a>
-  End each file with a newline.
+  Beende jede Datei mit einer leeren Zeile.
 <sup>[[link](#newline-eof)]</sup>
 
 * <a name="no-block-comments"></a>
@@ -584,13 +572,13 @@ Translations of the guide are available in the following languages:
 <sup>[[link](#no-block-comments)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   =begin
   comment line
   another comment line
   =end
 
-  # good
+  # gut
   # comment line
   # another comment line
   ```
@@ -604,11 +592,11 @@ Translations of the guide are available in the following languages:
 <sup>[[link](#double-colons)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   SomeClass::some_method
   some_object::some_method
 
-  # good
+  # gut
   SomeClass.some_method
   some_object.some_method
   SomeModule::SomeClass::SOME_CONST
@@ -616,40 +604,40 @@ Translations of the guide are available in the following languages:
   ```
 
 * <a name="method-parens"></a>
-    Use `def` with parentheses when there are parameters. Omit the
-    parentheses when the method doesn't accept any parameters.
+    Verwende `def` mit Klammern, wenn Parameter vorhanden sind. Lass die
+    Klammern weg, wenn die Methode keine Parameter akzeptiert.
 <sup>[[link](#method-parens)]</sup>
 
    ```Ruby
-   # bad
+   # schlecht
    def some_method()
-     # body omitted
+     # Körper weggelassen
    end
 
-   # good
+   # gut
    def some_method
-     # body omitted
+     # Körper weggelassen
    end
 
-   # bad
+   # schlecht
    def some_method_with_parameters param1, param2
-     # body omitted
+     # Körper weggelassen
    end
 
-   # good
+   # gut
    def some_method_with_parameters(param1, param2)
-     # body omitted
+     # Körper weggelassen
    end
    ```
 
 * <a name="optional-arguments"></a>
-    Define optional arguments at the end of the list of arguments.
-    Ruby has some unexpected results when calling methods that have
-    optional arguments at the front of the list.
+    Definiere optionale Argumente am Ende der Argumentenliste.
+    Ruby liefert einige unerwartete Ergebnisse beim Aufruf von Methoden,
+    die am Anfang der Liste optionale Argumente stehen haben.
 <sup>[[link](#optional-arguments)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   def some_method(a = 1, b = 2, c, d)
     puts "#{a}, #{b}, #{c}, #{d}"
   end
@@ -658,7 +646,7 @@ Translations of the guide are available in the following languages:
   some_method('w', 'x', 'y') # => 'w, 2, x, y'
   some_method('w', 'x', 'y', 'z') # => 'w, x, y, z'
 
-  # good
+  # gut
   def some_method(c, d, a = 1, b = 2)
     puts "#{a}, #{b}, #{c}, #{d}"
   end
@@ -676,18 +664,18 @@ Translations of the guide are available in the following languages:
 <sup>[[link](#parallel-assignment)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   a, b, c, d = 'foo', 'bar', 'baz', 'foobar'
 
-  # good
+  # gut
   a = 'foo'
   b = 'bar'
   c = 'baz'
   d = 'foobar'
 
-  # good - swapping variable assignment
-  # Swapping variable assignment is a special case because it will allow you to
-  # swap the values that are assigned to each variable.
+  # gut - Zuweisungen von Variablen werden getauscht
+  # Das Vertauschen von Variablenzuweisungen ist ein Sonderfall,
+  # da es dir erlaubt, die Werte auszutauschen, die jeder Variablen zugewiesen sind.
   a = 'foo'
   b = 'bar'
 
@@ -695,14 +683,14 @@ Translations of the guide are available in the following languages:
   puts a # => 'bar'
   puts b # => 'foo'
 
-  # good - method return
+  # gut - Methodenrückgabewert
   def multi_return
     [1, 2]
   end
 
   first, second = multi_return
 
-  # good - use with splat
+  # gut - Verwendung von Splat
   first, *list = [1,2,3,4]
 
   hello_array = *"Hello"
@@ -721,51 +709,50 @@ Translations of the guide are available in the following languages:
   ```Ruby
   arr = [1, 2, 3]
 
-  # bad
+  # schlecht
   for elem in arr do
     puts elem
   end
 
-  # note that elem is accessible outside of the for loop
+  # Beachte, dass elem außerhalb der For-Schleife zugänglich ist
   elem # => 3
 
-  # good
+  # gut
   arr.each { |elem| puts elem }
 
-  # elem is not accessible outside each's block
+  # elem ist außerhalb des Each-Blocks nicht zugänglich
   elem # => NameError: undefined local variable or method `elem'
   ```
 
 * <a name="no-then"></a>
-  Do not use `then` for multi-line `if/unless`.
+  Vermeide `then` für mehrzeilige `if/unless`.
 <sup>[[link](#no-then)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   if some_condition then
-    # body omitted
+    # Körper weggelassen
   end
 
-  # good
+  # gut
   if some_condition
-    # body omitted
+    # Körper weggelasssen
   end
   ```
 
 * <a name="same-line-condition"></a>
-  Always put the condition on the same line as the `if`/`unless` in a
-  multi-line conditional.
+  Schreibe bei mehrzeiligen Bedingungen, die Bedingung immer in die gleiche Zeile wie `if`/`unless`.
 <sup>[[link](#same-line-condition)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   if
     some_condition
     do_something
     do_something_else
   end
 
-  # good
+  # gut
   if some_condition
     do_something
     do_something_else
@@ -773,15 +760,15 @@ Translations of the guide are available in the following languages:
   ```
 
 * <a name="ternary-operator"></a>
-  Favor the ternary operator(`?:`) over `if/then/else/end` constructs.
-  It's more common and obviously more concise.
+  Bevorzuge den Trinitätsoperator (`?:`) gegenüber `if/then/else/end`-Konstrukten.
+  Er ist gebräuchlicher und offensichtlich leichter lesbar.
 <sup>[[link](#ternary-operator)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   result = if some_condition then something else something_else end
 
-  # good
+  # gut
   result = some_condition ? something : something_else
   ```
 
@@ -804,15 +791,14 @@ Translations of the guide are available in the following languages:
   ```
 
 * <a name="no-semicolon-ifs"></a>
-  Do not use `if x; ...`. Use the ternary
-  operator instead.
+  Vermeide `if x; ...`. Verwende stattdessen den Trinitätsoperator.
 <sup>[[link](#no-semicolon-ifs)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   result = if some_condition; something else something_else end
 
-  # good
+  # gut
   result = some_condition ? something : something_else
   ```
 
@@ -822,14 +808,14 @@ Translations of the guide are available in the following languages:
 <sup>[[link](#use-if-case-returns)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   if condition
     result = x
   else
     result = y
   end
 
-  # good
+  # gut
   result =
     if condition
       x
@@ -839,76 +825,76 @@ Translations of the guide are available in the following languages:
   ```
 
 * <a name="one-line-cases"></a>
-  Use `when x then ...` for one-line cases. The alternative syntax `when x:
-  ...` has been removed as of Ruby 1.9.
+  Verwende `when x then ...` für einzeilige Fälle. Die alternative Syntax `when x:
+  ...` wurde in Ruby 1.9 entfernen.
 <sup>[[link](#one-line-cases)]</sup>
 
 * <a name="no-when-semicolons"></a>
-  Do not use `when x; ...`. See the previous rule.
+  Vermeide `when x; ...`. Dazu betrachte die vorherige Regel.
 <sup>[[link](#no-when-semicolons)]</sup>
 
 * <a name="bang-not-not"></a>
-  Use `!` instead of `not`.
+  Verwende `!` statt `not`.
 <sup>[[link](#bang-not-not)]</sup>
 
   ```Ruby
-  # bad - braces are required because of op precedence
+  # schlecht - Klammern sind aufgrund des Operatorvorranges notwendig
   x = (not something)
 
-  # good
+  # gut
   x = !something
   ```
 
 * <a name="no-bang-bang"></a>
-  Avoid the use of `!!`.
+  Vermeide die Verwendung von `!!`.
 <sup>[[link](#no-bang-bang)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   x = 'test'
-  # obscure nil check
+  # unklare Prüfung auf nil
   if !!x
-    # body omitted
+    # Körper weggelassen
   end
 
   x = false
-  # double negation is useless on booleans
+  # Doppelte Negation ist für boolsche Werte sinnlos
   !!x # => false
 
-  # good
+  # gut
   x = 'test'
   unless x.nil?
-    # body omitted
+    # Körper weggelassen
   end
   ```
 
 * <a name="no-and-or-or"></a>
-  The `and` and `or` keywords are banned. It's just not worth it. Always use
-  `&&` and `||` instead.
+  Die Schlüsselwörter `and` und `or` sind verboten. Das ist es einfach nicht wert. Verwende stattdessen immer
+  `&&` und `||`.
 <sup>[[link](#no-and-or-or)]</sup>
 
   ```Ruby
-  # bad
-  # boolean expression
+  # schlecht
+  # boolscher Ausdruck
   if some_condition and some_other_condition
     do_something
   end
 
-  # control flow
+  # Kontrollfluss
   document.saved? or document.save!
 
-  # good
-  # boolean expression
+  # gut
+  # boolscher Ausdruck
   if some_condition && some_other_condition
     do_something
   end
 
-  # control flow
+  # Kontrollfluss
   document.saved? || document.save!
   ```
 
 * <a name="no-multiline-ternary"></a>
-  Avoid multi-line `?:` (the ternary operator); use `if/unless` instead.
+  Vermeide mehrzeilige `?:` (der Trinitätsoperator); verwende stattdessen `if/unless`.
 <sup>[[link](#no-multiline-ternary)]</sup>
 
 * <a name="if-as-a-modifier"></a>
