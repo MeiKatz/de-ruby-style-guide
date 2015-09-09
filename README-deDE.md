@@ -202,9 +202,9 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
   e = M * c**2
   ```
 
-  `{` and `}` deserve a bit of clarification, since they are used
-  for block and hash literals, as well as string interpolation.
-  For hash literals two styles are considered acceptable.
+  `{` und `}` benötigen etwas Erklärung, da sie für Blöcke und Hashs,
+  genauso wie für Zeichenketten-Erweiterungen genutzt werden.
+  Für Hashs sind zwei Formen akzeptabel.
 
   ```Ruby
   # gut - Leerzeichen nach { und vor }
@@ -214,10 +214,10 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
   {one: 1, two: 2}
   ```
 
-  The first variant is slightly more readable (and arguably more
-  popular in the Ruby community in general). The second variant has
-  the advantage of adding visual difference between block and hash
-  literals. Whichever one you pick - apply it consistently.
+  Die erste Variante ist etwas leichter lesbar (und angeblich in der
+  Ruby-Gemeinschaft weiter verbreitet). Die zweite Variante hat den Vorteil,
+  dass es einen visuellen Unterschied zwischen Blöcken und Hashs gibt.
+  Wofür du dich auch entscheidest - verwende es konsequent.
 
 * <a name="no-spaces-braces"></a>
   Keine Leerzeichen nach `(`, `[` oder vor `]`, `)`.
@@ -246,7 +246,7 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
   ```
 
 * <a name="no-space-inside-range-literals"></a>
-  No space inside range literals.
+  Keine Leerzeichen innerhalb von Intervallen.
 <sup>[[link](#no-space-inside-range-literals)]</sup>
 
     ```Ruby
@@ -260,9 +260,9 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
     ```
 
 * <a name="indent-when-to-case"></a>
-  Indent `when` as deep as `case`. I know that many would disagree
-  with this one, but it's the style established in both "The Ruby
-  Programming Language" and "Programming Ruby".
+  Rücke `when` genauso weit ein wie `case`. Mir ist bewusst, dass viele mir
+  hier widersprechen, jedoch ist das die Form, die sowohl in "The Ruby
+  Programming Language" als auch in "Programming Ruby" verwendet wird.
 <sup>[[link](#indent-when-to-case)]</sup>
 
   ```Ruby
