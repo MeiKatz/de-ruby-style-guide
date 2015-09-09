@@ -349,8 +349,8 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
   ```
 
 * <a name="empty-lines-between-methods"></a>
-  Use empty lines between method definitions and also to break up a method
-  into logical paragraphs internally.
+  Verwende leere Zeilen zwischen den Methodendefinitionen, genauso wie zum internen Unterteilen
+  einer Methode in logische Absätze.
 <sup>[[link](#empty-lines-between-methods)]</sup>
 
   ```Ruby
@@ -369,7 +369,7 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
 
 * <a name="no-trailing-params-comma"></a>
   Vermeide Kommata nach dem letzten Parameter in einem Methodenaufruf,
-  besonders dann, wenn die Parameter sich in einer Zeile befinden
+  besonders dann, wenn die Parameter sich in einer Zeile befinden.
 <sup>[[link](#no-trailing-params-comma)]</sup>
 
   ```Ruby
@@ -408,7 +408,7 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
   ist die zweite Form in der Praxis weiter verbreitet (und wohl ein bisschen lesbarer).
 
 * <a name="no-trailing-backslash"></a>
-  Vermeide Zeilen-Fortsetzungen `\`, wo nicht benötigt. In der Praxis, solltest Du es
+  Vermeide Zeilen-Fortsetzungen `\`, wo nicht benötigt. In der Praxis solltest Du es
   überall vermeiden, außer bei der Fortsetzung von Zeichenketten.
 <sup>[[link](#no-trailing-backslash)]</sup>
 
@@ -421,8 +421,8 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
   result = 1 \
            - 2
 
-  long_string = 'First part of the long string' \
-                ' and second part of the long string'
+  long_string = 'Erster Teil der langen Zeichenkette' \
+                ' und der zweite Teil der langen Zeichenkette'
   ```
 
 * <a name="consistent-multi-line-chains"></a>
@@ -471,7 +471,7 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
   ```Ruby
   # Ausgangspunkt (Zeile ist zu lang)
   def send_mail(source)
-    Mailer.deliver(to: 'bob@example.com', from: 'us@example.com', subject: 'Important message', body: source.text)
+    Mailer.deliver(to: 'bob@example.com', from: 'us@example.com', subject: 'Wichtige Nachricht', body: source.text)
   end
 
   # schlecht (doppelt eingerückt)
@@ -479,7 +479,7 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
     Mailer.deliver(
         to: 'bob@example.com',
         from: 'us@example.com',
-        subject: 'Important message',
+        subject: 'Wichtige Nachricht',
         body: source.text)
   end
 
@@ -487,7 +487,7 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
   def send_mail(source)
     Mailer.deliver(to: 'bob@example.com',
                    from: 'us@example.com',
-                   subject: 'Important message',
+                   subject: 'Wichtige Nachricht',
                    body: source.text)
   end
 
@@ -496,7 +496,7 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
     Mailer.deliver(
       to: 'bob@example.com',
       from: 'us@example.com',
-      subject: 'Important message',
+      subject: 'Wichtige Nachricht',
       body: source.text
     )
   end
@@ -524,7 +524,7 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
   ```
 
 * <a name="underscores-in-numerics"></a>
-  Füge großen Zahlenliteralen Unterstriche hinzu, um ihre Lesbarkeit zu erhöhen.
+  Füge großen Zahlenwerten Unterstriche hinzu, um ihre Lesbarkeit zu erhöhen.
 <sup>[[link](#underscores-in-numerics)]</sup>
 
   ```Ruby
@@ -685,11 +685,10 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
   ```
 
 * <a name="no-for-loops"></a>
-    Do not use `for`, unless you know exactly why. Most of the time iterators
-    should be used instead. `for` is implemented in terms of `each` (so
-    you're adding a level of indirection), but with a twist - `for`
-    doesn't introduce a new scope (unlike `each`) and variables defined
-    in its block will be visible outside it.
+    Verwende `for` nur dann, wenn du genau weißt, was du tust. Meistens eignen sich Iteratoren
+    besser. `each` ist durch `for` implementiert (du fügst also
+    eine Ebene von Indirektion hinzu), jedoch mit einer Verschränkung - anders als `each` führt `for` keinen
+    neuen Wertebereich ein und Variablen, die dort verwendet werden, sind auch außerhalb sichtbar.
 <sup>[[link](#no-for-loops)]</sup>
 
   ```Ruby
@@ -765,10 +764,10 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
 <sup>[[link](#no-nested-ternary)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   some_condition ? (nested_condition ? nested_something : nested_something_else) : something_else
 
-  # good
+  # gut
   if some_condition
     nested_condition ? nested_something : nested_something_else
   else
@@ -812,7 +811,7 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
 
 * <a name="one-line-cases"></a>
   Verwende `when x then ...` für einzeilige Fälle. Die alternative Syntax `when x:
-  ...` wurde in Ruby 1.9 entfernen.
+  ...` wurde in Ruby 1.9 entfernt.
 <sup>[[link](#one-line-cases)]</sup>
 
 * <a name="no-when-semicolons"></a>
@@ -884,44 +883,44 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
 <sup>[[link](#no-multiline-ternary)]</sup>
 
 * <a name="if-as-a-modifier"></a>
-  Favor modifier `if/unless` usage when you have a single-line body. Another
-  good alternative is the usage of control flow `&&/||`.
+  Ziehe die Verwendung von `if/unless` vor, wenn du nur eine Zeile hast. Eine andere
+  gute Alternative ist die Verwendung des Kontrollflusses `&&/||`.
 <sup>[[link](#if-as-a-modifier)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   if some_condition
     do_something
   end
 
-  # good
+  # gut
   do_something if some_condition
 
-  # another good option
+  # eine andere gute Möglichkeit
   some_condition && do_something
   ```
 
 * <a name="no-multiline-if-modifiers"></a>
-  Avoid modifier `if/unless` usage at the end of a non-trivial multi-line
-  block.
+  Vermeide die Verwendung von `if/unless` am Ende eines nicht trivialen mehrzeiligen
+  Blocks.
 <sup>[[link](#no-multiline-if-modifiers)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   10.times do
-    # multi-line body omitted
+    # mehrzeiliger Körper weggelassen
   end if some_condition
 
-  # good
+  # gut
   if some_condition
     10.times do
-      # multi-line body omitted
+      # mehrzeiliger Körper weggelassen
     end
   end
   ```
 
 * <a name="unless-for-negatives"></a>
-  Favor `unless` over `if` for negative conditions (or control flow `||`).
+  Nutze `unless` statt `if` für negative Bedingungen (oder Kontrollfluss `||`).
 <sup>[[link](#unless-for-negatives)]</sup>
 
   ```Ruby
@@ -939,27 +938,27 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
   ```
 
 * <a name="no-else-with-unless"></a>
-  Do not use `unless` with `else`. Rewrite these with the positive case first.
+  Vermeide `unless` im Zusammenhang mit `else`. Schreibe sie so um, dass der positive Fall zuerst eintritt.
 <sup>[[link](#no-else-with-unless)]</sup>
 
   ```Ruby
   # schlecht
   unless success?
-    puts 'failure'
+    puts 'Misserfolg'
   else
-    puts 'success'
+    puts 'Erfolg'
   end
 
   # gut
   if success?
-    puts 'success'
+    puts 'Erfolg'
   else
-    puts 'failure'
+    puts 'Misserfolg'
   end
   ```
 
 * <a name="no-parens-if"></a>
-  Don't use parentheses around the condition of an `if/unless/while/until`.
+  Vermeide Klammern um die Bedingung von `if/unless/while/until` herum.
 <sup>[[link](#no-parens-if)]</sup>
 
   ```Ruby
@@ -978,7 +977,7 @@ Note that there is an exception to this rule, namely [safe assignment in
 condition](#safe-assignment-in-condition).
 
 * <a name="no-multiline-while-do"></a>
-  Do not use `while/until condition do` for multi-line `while/until`.
+  Vermeide `while/until condition do` bei mehrzeiligen `while/until`.
 <sup>[[link](#no-multiline-while-do)]</sup>
 
   ```Ruby
@@ -1002,7 +1001,7 @@ condition](#safe-assignment-in-condition).
   ```
 
 * <a name="while-as-a-modifier"></a>
-  Favor modifier `while/until` usage when you have a single-line body.
+  Bevorzuge die Verwendung von `while/until`, wenn du nur eine Zeile hast.
 <sup>[[link](#while-as-a-modifier)]</sup>
 
   ```Ruby
@@ -1016,7 +1015,7 @@ condition](#safe-assignment-in-condition).
   ```
 
 * <a name="until-for-negatives"></a>
-  Favor `until` over `while` for negative conditions.
+  Nutze `until` statt `while` für negative Bedingungen.
 <sup>[[link](#until-for-negatives)]</sup>
 
   ```Ruby
@@ -1028,7 +1027,7 @@ condition](#safe-assignment-in-condition).
   ```
 
 * <a name="infinite-loop"></a>
-  Verwende `Kernel#loop` anstatt `while/until`, wenn du eine Endlosschleife brauchst.
+  Verwende `Kernel#loop` statt `while/until`, wenn du eine Endlosschleife brauchst.
 <sup>[[link](#infinite-loop)]</sup>
 
     ```ruby
@@ -1048,7 +1047,7 @@ condition](#safe-assignment-in-condition).
     ```
 
 * <a name="loop-with-break"></a>
-  Verwende `Kernel#loop` mit `break` anstatt `begin/end/until` oder
+  Verwende `Kernel#loop` mit `break` statt `begin/end/until` oder
   `begin/end/while` für fußgesteuerte Schleifen.
 <sup>[[link](#loop-with-break)]</sup>
 
@@ -1120,7 +1119,7 @@ condition](#safe-assignment-in-condition).
   ```
 
 * <a name="no-args-no-parens"></a>
-  Lass die Klammern weg, wenn du einer Methode keine Argumente übergibst.
+  Lass die Klammern weg, wenn du bei einem Methodenaufruf keine Argumente übergibst.
 <sup>[[link](#no-args-no-parens)]</sup>
 
   ```Ruby
