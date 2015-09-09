@@ -925,16 +925,16 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
 <sup>[[link](#unless-for-negatives)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   do_something if !some_condition
 
-  # bad
+  # schlecht
   do_something if not some_condition
 
-  # good
+  # gut
   do_something unless some_condition
 
-  # another good option
+  # eine andere gute Möglichkeit
   some_condition || do_something
   ```
 
@@ -943,14 +943,14 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
 <sup>[[link](#no-else-with-unless)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   unless success?
     puts 'failure'
   else
     puts 'success'
   end
 
-  # good
+  # gut
   if success?
     puts 'success'
   else
@@ -963,14 +963,14 @@ Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeuge
 <sup>[[link](#no-parens-if)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   if (x > 10)
-    # body omitted
+    # Körper weggelassen
   end
 
-  # good
+  # gut
   if x > 10
-    # body omitted
+    # Körper weggelassen
   end
   ```
 
@@ -982,22 +982,22 @@ condition](#safe-assignment-in-condition).
 <sup>[[link](#no-multiline-while-do)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   while x > 5 do
-    # body omitted
+    # Körper weggelassen
   end
 
   until x > 5 do
-    # body omitted
+    # Körper weggelassen
   end
 
-  # good
+  # gut
   while x > 5
-    # body omitted
+    # Körper weggelassen
   end
 
   until x > 5
-    # body omitted
+    # Körper weggelassen
   end
   ```
 
@@ -1006,12 +1006,12 @@ condition](#safe-assignment-in-condition).
 <sup>[[link](#while-as-a-modifier)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   while some_condition
     do_something
   end
 
-  # good
+  # gut
   do_something while some_condition
   ```
 
@@ -1020,19 +1020,19 @@ condition](#safe-assignment-in-condition).
 <sup>[[link](#until-for-negatives)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   do_something while !some_condition
 
-  # good
+  # gut
   do_something until some_condition
   ```
 
 * <a name="infinite-loop"></a>
-  Use `Kernel#loop` instead of `while/until` when you need an infinite loop.
+  Verwende `Kernel#loop` anstatt `while/until`, wenn du eine Endlosschleife brauchst.
 <sup>[[link](#infinite-loop)]</sup>
 
     ```ruby
-    # bad
+    # schlecht
     while true
       do_something
     end
@@ -1041,25 +1041,25 @@ condition](#safe-assignment-in-condition).
       do_something
     end
 
-    # good
+    # gut
     loop do
       do_something
     end
     ```
 
 * <a name="loop-with-break"></a>
-  Use `Kernel#loop` with `break` rather than `begin/end/until` or
-  `begin/end/while` for post-loop tests.
+  Verwende `Kernel#loop` mit `break` anstatt `begin/end/until` oder
+  `begin/end/while` für fußgesteuerte Schleifen.
 <sup>[[link](#loop-with-break)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   begin
     puts val
     val += 1
   end while val < 0
 
-  # good
+  # gut
   loop do
     puts val
     val += 1
@@ -1078,7 +1078,7 @@ condition](#safe-assignment-in-condition).
   class Person
     attr_reader :name, :age
 
-    # omitted
+    # weggelassen
   end
 
   temperance = Person.new('Temperance', 30)
@@ -1097,10 +1097,10 @@ condition](#safe-assignment-in-condition).
 <sup>[[link](#no-braces-opts-hash)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   user.set({ name: 'John', age: 45, permissions: { read: true } })
 
-  # good
+  # gut
   user.set(name: 'John', age: 45, permissions: { read: true })
   ```
 
@@ -1111,26 +1111,26 @@ condition](#safe-assignment-in-condition).
 
   ```Ruby
   class Person < ActiveRecord::Base
-    # bad
+    # schlecht
     validates(:name, { presence: true, length: { within: 1..10 } })
 
-    # good
+    # gut
     validates :name, presence: true, length: { within: 1..10 }
   end
   ```
 
 * <a name="no-args-no-parens"></a>
-  Omit parentheses for method calls with no arguments.
+  Lass die Klammern weg, wenn du einer Methode keine Argumente übergibst.
 <sup>[[link](#no-args-no-parens)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   Kernel.exit!()
   2.even?()
   fork()
   'test'.upcase()
 
-  # good
+  # gut
   Kernel.exit!
   2.even?
   fork
@@ -1142,10 +1142,10 @@ condition](#safe-assignment-in-condition).
 <sup>[[link](#single-action-blocks)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   names.map { |name| name.upcase }
 
-  # good
+  # gut
   names.map(&:upcase)
   ```
 
@@ -1159,20 +1159,20 @@ condition](#safe-assignment-in-condition).
   ```Ruby
   names = %w(Bozhidar Steve Sarah)
 
-  # bad
+  # schlecht
   names.each do |name|
     puts name
   end
 
-  # good
+  # gut
   names.each { |name| puts name }
 
-  # bad
+  # schlecht
   names.select do |name|
     name.start_with?('S')
   end.map { |name| name.upcase }
 
-  # good
+  # gut
   names.select { |name| name.start_with?('S') }.map(&:upcase)
   ```
 
@@ -1365,21 +1365,21 @@ condition](#safe-assignment-in-condition).
 <sup>[[link](#double-amper-preprocess)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   if something
     something = something.downcase
   end
 
-  # bad
+  # schlecht
   something = something ? something.downcase : nil
 
   # ok
   something = something.downcase if something
 
-  # good
+  # gut
   something = something && something.downcase
 
-  # better
+  # besser
   something &&= something.downcase
   ```
 
@@ -1855,10 +1855,10 @@ no parameters.
 <sup>[[link](#reverse-each)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   array.reverse.each { ... }
 
-  # good
+  # gut
   array.reverse_each { ... }
   ```
 
@@ -1873,22 +1873,22 @@ no parameters.
 <sup>[[link](#english-identifiers)]</sup>
 
   ```Ruby
-  # bad - identifier using non-ascii characters
+  # schlecht - Bezeichner beinhaltet Zeichen außerhalb von ASCII
   заплата = 1_000
 
-  # bad - identifier is a Bulgarian word, written with Latin letters (instead of Cyrillic)
+  # schlecht - Bezeichner ist ein bulgarisches Wort, geschrieben in latinischen Zeichen (statt kyrillischen)
   zaplata = 1_000
 
-  # good
+  # gut
   salary = 1_000
   ```
 
 * <a name="snake-case-symbols-methods-vars"></a>
-  Use `snake_case` for symbols, methods and variables.
+  Nutze `snake_case` für Symbole, Methoden und Variablen.
 <sup>[[link](#snake-case-symbols-methods-vars)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   :'some symbol'
   :SomeSymbol
   :someSymbol
@@ -1903,7 +1903,7 @@ no parameters.
    ...
   end
 
-  # good
+  # gut
   :some_symbol
 
   def some_method
@@ -1912,12 +1912,12 @@ no parameters.
   ```
 
 * <a name="camelcase-classes"></a>
-  Use `CamelCase` for classes and modules.  (Keep acronyms like HTTP, RFC, XML
-  uppercase.)
+  Nutze `CamelCase` für Klassen und Modulen. (Behalte Abkürzungen wie HTTP, RFC, XML
+  in Großbuchstaben bei.)
 <sup>[[link](#camelcase-classes)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   class Someclass
     ...
   end
@@ -1934,7 +1934,7 @@ no parameters.
     ...
   end
 
-  # good
+  # gut
   class SomeClass
     ...
   end
@@ -1949,28 +1949,28 @@ no parameters.
   ```
 
 * <a name="snake-case-files"></a>
-  Use `snake_case` for naming files, e.g. `hello_world.rb`.
+  Nutze `snake_case` für die Benennung von Dateien, e.g. `hello_world.rb`.
 <sup>[[link](#snake-case-files)]</sup>
 
 * <a name="snake-case-dirs"></a>
-  Use `snake_case` for naming directories, e.g.
+  Nutze `snake_case` für die Benennung von Verzeichnissen, e.g.
   `lib/hello_world/hello_world.rb`.
 <sup>[[link](#snake-case-dirs)]</sup>
 
 * <a name="one-class-per-file"></a>
-  Aim to have just a single class/module per source file. Name the file name
-  as the class/module, but replacing CamelCase with snake_case.
+  Versuche für jede Klasse/jedes Modul eine eigene Datei zu verwenden. Benenne die Datei
+  wie die Klasse/das Modul, aber verwende snake_case statt CamelCase.
 <sup>[[link](#one-class-per-file)]</sup>
 
 * <a name="screaming-snake-case"></a>
-  Use `SCREAMING_SNAKE_CASE` for other constants.
+  Nutze `SCREAMING_SNAKE_CASE` für andere Konstanten.
 <sup>[[link](#screaming-snake-case)]</sup>
 
   ```Ruby
-  # bad
+  # schlecht
   SomeConst = 5
 
-  # good
+  # gut
   SOME_CONST = 5
   ```
 
