@@ -3,17 +3,17 @@
 > Vorbilder sind wichtig. (Original engl.: Role models are important.) <br>
 > -- Officer Alex J. Murphy / RoboCop
 
-Eine Sache hat mich als Ruby-Entwickler immer gestört: Python-Entwickler haben eine großartige Programmierstil-Empfehlung ([PEP-8][]) und wir hatten nie einen offiziellen Leitfaden, der den Ruby-Programmierstil und die Best Practices festhält. Und ich glaube, dass Stil wichtig ist. Ebenso glaube ich, dass eine große Hacker-Gemeinschaft, wie die von Ruby, imstande sein sollte, dieses begehrte Dokument zu erstellen.
+Eine Sache hat mich als Ruby-Entwickler immer gestört: Python-Entwickler haben eine großartige Programmierstil-Empfehlung ([PEP-8][]) und wir hatten nie einen offiziellen Leitfaden, der den Ruby-Programmierstil und die bewährten Methoden festhält. Und ich glaube, dass Stil wichtig ist. Ebenso glaube ich, dass eine große Hacker-Gemeinschaft, wie die von Ruby, imstande sein sollte, dieses begehrte Dokument zu erstellen.
 
 Dieser Leitfaden begann sein Leben als unser betriebsinterner Ruby-Programmierstil-Leitfaden (von meiner Wenigkeit geschrieben). Ab einem gewissen Punkt entschied ich, dass diese Arbeit allgemein für Mitglieder der Ruby-Gemeinschaft interessant sein könnte und dass die Welt wenig Bedarf für eine weitere betriebsinterene Richtlinie hat. Allerdings könnte die Welt von einer Hand voll Methoden, Idiomen und Stilvorschriften für die Ruby-Programmierung profitieren, die von der Gemeinschaft vorangetrieben und unterstützt wird.
 
 Von Anfang an habe ich eine Menge Rückmeldungen von Mitgliedern aus der außergewöhnlichen Ruby-Gemeinschaft rund um die Welt erhalten. Vielen Dank für all die Anregungen und die Unterstützung! Zusammen können wir eine Bezugsquelle schaffen, die für jeden Ruby-Entwickler da draußen nütztlich ist.
 
-Nebenbei: wenn Du Rails magst, dann schau Dir ergänzend hierzu den [Ruby-on-Rails-Stilleitfaden][rails-style-guide] an.
+Nebenbei: wenn du Rails magst, dann schau dir ergänzend hierzu den [Ruby-on-Rails-Stilleitfaden][rails-style-guide] an.
 
 # Der Ruby-Stilleitfaden
 
-Dieser Ruby-Programmierstil-Leitfaden empfiehlt bewährte Verfahren, mit denen praxisnahe Ruby-Entwickler Code schreiben können, den andere praxisnahe Ruby-Entwickler pflegen können. Ein Stilleitfaden, der den Einsatz in der Praxis berücksichtigt und der idealerweise den Menschen hilft, bestimmte Risiken gar nicht erst einzugehen &ndash; egal wie gut es gemeint ist.
+Dieser Ruby-Programmierstil-Leitfaden empfiehlt bewährte Methoden, mit denen praxisnahe Ruby-Entwickler Code schreiben können, den andere praxisnahe Ruby-Entwickler pflegen können. Ein Stilleitfaden, der den Einsatz in der Praxis berücksichtigt und der idealerweise den Menschen hilft, bestimmte Risiken gar nicht erst einzugehen &ndash; egal wie gut es gemeint ist.
 
 Der Leitfaden ist unterteilt in mehrere Abschnitte von zusammengehörgigen Regeln. Ich habe versucht, die Regeln zu begründen (wenn nicht, dann weil ich angenommen habe, dass es ziemlich offensichtlich ist).
 
