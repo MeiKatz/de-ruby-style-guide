@@ -13,42 +13,28 @@ Nebenbei: wenn Du Rails magst, dann schau Dir ergänzend hierzu den [Ruby-on-Rai
 
 # Der Ruby-Stilleitfaden
 
-This Ruby style guide recommends best practices so that real-world Ruby
-programmers can write code that can be maintained by other real-world Ruby
-programmers. A style guide that reflects real-world usage gets used, and a style
-guide that holds to an ideal that has been rejected by the people it is supposed
-to help risks not getting used at all &ndash; no matter how good it is.
+Dieser Ruby-Programmierstil-Leitfaden empfiehlt bewährte Verfahren, mit denen praxisnahe Ruby-Entwickler Code schreiben können, den andere praxisnahe Ruby-Entwickler pflegen können. Ein Stilleitfaden, der den Einsatz in der Praxis berücksichtigt und der idealerweise den Menschen hilft, bestimmte Risiken gar nicht erst einzugehen &ndash; egal wie gut es gemeint ist.
 
-The guide is separated into several sections of related rules. I've tried to add
-the rationale behind the rules (if it's omitted I've assumed it's pretty
-obvious).
+Der Leitfaden ist unterteilt in mehrere Abschnitte von zusammengehörgigen Regeln. Ich habe versucht, die Regeln zu begründen (wenn nicht, dann weil ich angenommen habe, dass es ziemlich offensichtlich ist).
 
-I didn't come up with all the rules out of nowhere - they are mostly
-based on my extensive career as a professional software engineer,
-feedback and suggestions from members of the Ruby community and
-various highly regarded Ruby programming resources, such as
-["Programming Ruby 1.9"][pickaxe] and
+Ich habe mir die Regeln nicht einfach so ausgedacht - sie basieren auf meiner langjährigen Erfahrung
+als professioneller Softwareentwickler, und Rückmeldungen und Anmerkungen von
+Mitgliedern der Ruby-Gemeinschaft, sowie unterschiedlichen sehr beachtenswerten
+Ruby-Programmier-Quellen wie
+["Programming Ruby 1.9"][pickaxe] und
 ["The Ruby Programming Language"][trpl].
 
-There are some areas in which there is no clear consensus in the Ruby community
-regarding a particular style (like string literal quoting, spacing inside hash
-literals, dot position in multi-line method chaining, etc.). In such scenarios
-all popular styles are acknowledged and it's up to you to pick one and apply it
-consistently.
+Es gibt einige Bereiche, in denen es in der Ruby-Gemeinschaft keine Einigkeit gibt, was einzelne Regeln betrifft (wie das Verwenden von Anführungszeichen bei Zeichenketten, das Setzen von Leerzeichen in Hashs, Punktsetzung bei mehrzeiligen verketteten Methodenaufrufen etc.). In diesen Fällen sind alle weitverbreiteten Stile angegeben und es liegt bei dir, dich für eine zu entscheiden und sie konsequent einzuhalten.
 
-This style guide evolves over time as additional conventions are
-identified and past conventions are rendered obsolete by changes in
-Ruby itself.
+Dieser Stilleitfaden entwickelt sich mit der Zeit, so sich zusätzliche Regeln ergeben
+und frühere Regeln durch Änderungen in Ruby selbst überflüssig werden.
 
-Many projects have their own coding style guidelines (often derived
-from this guide). In the event of any conflicts, such
-project-specific guides take precedence for that project.
+Viele Projekte haben ihre eigenen Codestil-Leitfäden (oftmals von diesem Leitfaden abgeleitet).
+Sollte es dabei zu Widersprüchen kommen, haben diese projekteigenen Regeln Vorrang für das Projekt.
 
-You can generate a PDF or an HTML copy of this guide using
-[Transmuter][].
+Mit [Transmuter][] kannst du eine PDF- oder HTML-Kopie dieses Leitfadens erzeugen.
 
-[RuboCop][] is a code analyzer, based on this
-style guide.
+[RuboCop][] ist ein Code-Analyser, der auf diesem Leitfaden basiert.
 
 Übersetzungen dieses Leitfadens sind in folgenden Sprachen verfügbar:
 
